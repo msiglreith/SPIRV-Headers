@@ -501,6 +501,7 @@ typedef enum SpvDecoration_ {
     SpvDecorationRestrictPointerEXT = 5355,
     SpvDecorationAliasedPointer = 5356,
     SpvDecorationAliasedPointerEXT = 5356,
+    SpvDecorationBindlessImageNV = 5399,
     SpvDecorationSIMTCallINTEL = 5599,
     SpvDecorationReferencedIndirectlyINTEL = 5602,
     SpvDecorationClobberINTEL = 5607,
@@ -1005,6 +1006,7 @@ typedef enum SpvCapability_ {
     SpvCapabilityShaderSMBuiltinsNV = 5373,
     SpvCapabilityFragmentShaderPixelInterlockEXT = 5378,
     SpvCapabilityDemoteToHelperInvocationEXT = 5379,
+    SpvCapabilityBindlessTextureNV = 5390,
     SpvCapabilitySubgroupShuffleINTEL = 5568,
     SpvCapabilitySubgroupBufferBlockIOINTEL = 5569,
     SpvCapabilitySubgroupImageBlockIOINTEL = 5570,
@@ -1517,6 +1519,10 @@ typedef enum SpvOp_ {
     SpvOpEndInvocationInterlockEXT = 5365,
     SpvOpDemoteToHelperInvocationEXT = 5380,
     SpvOpIsHelperInvocationEXT = 5381,
+    SpvOpConvertUToImageNV = 5391,
+    SpvOpConvertImageToUNV = 5393,
+    SpvOpConvertUToSampledImageNV = 5395,
+    SpvOpSamplerImageAddressingModeNV = 5397,
     SpvOpSubgroupShuffleINTEL = 5571,
     SpvOpSubgroupShuffleDownINTEL = 5572,
     SpvOpSubgroupShuffleUpINTEL = 5573,
@@ -2103,6 +2109,10 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpEndInvocationInterlockEXT: *hasResult = false; *hasResultType = false; break;
     case SpvOpDemoteToHelperInvocationEXT: *hasResult = false; *hasResultType = false; break;
     case SpvOpIsHelperInvocationEXT: *hasResult = true; *hasResultType = true; break;
+    case SpvOpConvertUToImageNV: *hasResult = true; *hasResultType = true; break;
+    case SpvOpConvertImageToUNV: *hasResult = true; *hasResultType = true; break;
+    case SpvOpConvertUToSampledImageNV: *hasResult = true; *hasResultType = true; break;
+    case SpvOpSamplerImageAddressingModeNV: *hasResult = false; *hasResultType = false; break;
     case SpvOpSubgroupShuffleINTEL: *hasResult = true; *hasResultType = true; break;
     case SpvOpSubgroupShuffleDownINTEL: *hasResult = true; *hasResultType = true; break;
     case SpvOpSubgroupShuffleUpINTEL: *hasResult = true; *hasResultType = true; break;

@@ -497,6 +497,7 @@ enum Decoration {
     DecorationRestrictPointerEXT = 5355,
     DecorationAliasedPointer = 5356,
     DecorationAliasedPointerEXT = 5356,
+    DecorationBindlessImageNV = 5399,
     DecorationSIMTCallINTEL = 5599,
     DecorationReferencedIndirectlyINTEL = 5602,
     DecorationClobberINTEL = 5607,
@@ -1001,6 +1002,7 @@ enum Capability {
     CapabilityShaderSMBuiltinsNV = 5373,
     CapabilityFragmentShaderPixelInterlockEXT = 5378,
     CapabilityDemoteToHelperInvocationEXT = 5379,
+    CapabilityBindlessTextureNV = 5390,
     CapabilitySubgroupShuffleINTEL = 5568,
     CapabilitySubgroupBufferBlockIOINTEL = 5569,
     CapabilitySubgroupImageBlockIOINTEL = 5570,
@@ -1513,6 +1515,10 @@ enum Op {
     OpEndInvocationInterlockEXT = 5365,
     OpDemoteToHelperInvocationEXT = 5380,
     OpIsHelperInvocationEXT = 5381,
+    OpConvertUToImageNV = 5391,
+    OpConvertImageToUNV = 5393,
+    OpConvertUToSampledImageNV = 5395,
+    OpSamplerImageAddressingModeNV = 5397,
     OpSubgroupShuffleINTEL = 5571,
     OpSubgroupShuffleDownINTEL = 5572,
     OpSubgroupShuffleUpINTEL = 5573,
@@ -2099,6 +2105,10 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case OpEndInvocationInterlockEXT: *hasResult = false; *hasResultType = false; break;
     case OpDemoteToHelperInvocationEXT: *hasResult = false; *hasResultType = false; break;
     case OpIsHelperInvocationEXT: *hasResult = true; *hasResultType = true; break;
+    case OpConvertUToImageNV: *hasResult = true; *hasResultType = true; break;
+    case OpConvertImageToUNV: *hasResult = true; *hasResultType = true; break;
+    case OpConvertUToSampledImageNV: *hasResult = true; *hasResultType = true; break;
+    case OpSamplerImageAddressingModeNV: *hasResult = false; *hasResultType = false; break;
     case OpSubgroupShuffleINTEL: *hasResult = true; *hasResultType = true; break;
     case OpSubgroupShuffleDownINTEL: *hasResult = true; *hasResultType = true; break;
     case OpSubgroupShuffleUpINTEL: *hasResult = true; *hasResultType = true; break;

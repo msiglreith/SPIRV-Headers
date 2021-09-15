@@ -497,6 +497,7 @@ enum class Decoration : unsigned {
     RestrictPointerEXT = 5355,
     AliasedPointer = 5356,
     AliasedPointerEXT = 5356,
+    BindlessImageNV = 5399,
     SIMTCallINTEL = 5599,
     ReferencedIndirectlyINTEL = 5602,
     ClobberINTEL = 5607,
@@ -1001,6 +1002,7 @@ enum class Capability : unsigned {
     ShaderSMBuiltinsNV = 5373,
     FragmentShaderPixelInterlockEXT = 5378,
     DemoteToHelperInvocationEXT = 5379,
+    BindlessTextureNV = 5390,
     SubgroupShuffleINTEL = 5568,
     SubgroupBufferBlockIOINTEL = 5569,
     SubgroupImageBlockIOINTEL = 5570,
@@ -1513,6 +1515,10 @@ enum class Op : unsigned {
     OpEndInvocationInterlockEXT = 5365,
     OpDemoteToHelperInvocationEXT = 5380,
     OpIsHelperInvocationEXT = 5381,
+    OpConvertUToImageNV = 5391,
+    OpConvertImageToUNV = 5393,
+    OpConvertUToSampledImageNV = 5395,
+    OpSamplerImageAddressingModeNV = 5397,
     OpSubgroupShuffleINTEL = 5571,
     OpSubgroupShuffleDownINTEL = 5572,
     OpSubgroupShuffleUpINTEL = 5573,
@@ -2099,6 +2105,10 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case Op::OpEndInvocationInterlockEXT: *hasResult = false; *hasResultType = false; break;
     case Op::OpDemoteToHelperInvocationEXT: *hasResult = false; *hasResultType = false; break;
     case Op::OpIsHelperInvocationEXT: *hasResult = true; *hasResultType = true; break;
+    case Op::OpConvertUToImageNV: *hasResult = true; *hasResultType = true; break;
+    case Op::OpConvertImageToUNV: *hasResult = true; *hasResultType = true; break;
+    case Op::OpConvertUToSampledImageNV: *hasResult = true; *hasResultType = true; break;
+    case Op::OpSamplerImageAddressingModeNV: *hasResult = false; *hasResultType = false; break;
     case Op::OpSubgroupShuffleINTEL: *hasResult = true; *hasResultType = true; break;
     case Op::OpSubgroupShuffleDownINTEL: *hasResult = true; *hasResultType = true; break;
     case Op::OpSubgroupShuffleUpINTEL: *hasResult = true; *hasResultType = true; break;
